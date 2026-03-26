@@ -582,22 +582,7 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  .input-area {
-    padding: 10px 10px;
-    gap: 5px;
-  }
 
-  .dropdown-toggle {
-    padding: 19px 12px;
-  }
-
-  .send-btn {
-    padding: 13px;
-    aspect-ratio: 1/1;
-    border-radius: 4px;
-  }
-}
 
 
 .input-field {
@@ -625,9 +610,9 @@ body {
   background: linear-gradient(135deg, #4299e1, #9f7aea);
   border: none;
   border-radius: 14px;
-  padding: 13px 10px;
+  padding: 13px 18px;
   color: #fff;
-  font-weight: 600;
+
   font-size: 15px;
   cursor: pointer;
   font-family: 'DM Sans', sans-serif;
@@ -646,6 +631,64 @@ body {
 
 .send-btn:active {
   transform: scale(0.96);
+}
+
+@media (max-width: 480px) {
+  .input-area {
+    padding: 10px 12px;
+    gap: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .custom-dropdown {
+    flex: 0 0 auto;
+    order: 1;
+  }
+
+  .dropdown-toggle {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+  }
+
+  .dropdown-toggle .chevron {
+    display: none;
+  }
+
+  .input-field {
+    flex: 1;
+    min-width: 0;
+    order: 2;
+  }
+
+  .send-btn {
+    flex: 0 0 auto;
+    order: 3;
+    padding: 0;
+    width: 44px;
+    height: 44px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(66, 153, 225, 0.4);
+    animation: sendPulse 2s infinite ease-in-out;
+  }
+}
+
+@keyframes sendPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(66, 153, 225, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0);
+  }
 }
 
 /* ── Name Screen ── */
@@ -669,14 +712,16 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.35; /* Dimmed heavily so card stays readable */
+  opacity: 0.35;
+  /* Dimmed heavily so card stays readable */
   z-index: 0;
 }
 
 .name-card {
   position: relative;
   z-index: 10;
-  background: rgba(22, 22, 29, 0.85); /* Slightly transparent to see video behind */
+  background: rgba(22, 22, 29, 0.85);
+  /* Slightly transparent to see video behind */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
