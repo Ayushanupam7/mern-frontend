@@ -76,7 +76,7 @@ function App() {
       });
 
       // 1. Save message to the subcollection
-      const msgRef = await addDoc(collection(db, "users", user.uid, "sessions", currentSessionId, "messages"), {
+      await addDoc(collection(db, "users", user.uid, "sessions", currentSessionId, "messages"), {
         ...cleanMsg,
         timestamp: serverTimestamp()
       });
